@@ -21,7 +21,7 @@ What things you need to run this script and how to install them
 4. download products
 
 # How to use the script
->> ***python3 script.py -h***
+ * use: >> ***python3 script.py -h***
   - -h, --help      show this help message and exit
   - -u user         a string for your username
   - -p password     a string for your password
@@ -31,4 +31,4 @@ What things you need to run this script and how to install them
   - -l Level        a string for your processing level (default: Level-2A)
   - -in File        The path of your geojson file
   - -out folder     The path of directory where to save downloaded files
->> ***python3 script.py -u user -p password -SD date -ED date -in path1 -out path2***
+  * use: >>***python3 script.py -u user -p password -SD date -ED date -in path1 -out path2***
