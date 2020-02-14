@@ -19,3 +19,16 @@ What things you need to run this script and how to install them
 2. read geojson file
 3. search by geometry
 4. download products
+
+# How to use the script
+* >> ***python3 script.py -h ***
+  - -h, --help      show this help message and exit
+  - -u user         a string for your username
+  - -p password     a string for your password
+  - -SD Date        a string for start date searching for images (YYYYMMDD)
+  - -ED Date        a string for end date searching for images (YYYYMMDD)
+  - -plat platform  a string for your platform name (default: Sentinel-2)
+  - -l Level        a string for your processing level (default: Level-2A)
+  - -in File        The path of your geojson file
+  - -out folder     The path of directory where to save downloaded files
+* >> ***python3 script.py -u user -p password -SD date -ED date -in path1 -out path2***
