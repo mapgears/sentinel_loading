@@ -16,7 +16,7 @@ parser.add_argument('-plat', metavar='platform', type=str,default='Sentinel-2',
                     help='a string for your platform name (default: Sentinel-2)',dest='platform_name')
 parser.add_argument('-l', metavar='Level', type=str,default='Level-2A',
                     help='a string for your processing level (default: Level-2A)',dest='processing_level')
-parser.add_argument('-in', metavar='File', type=str,default='/home/faiez_benamar/Bureau/doc/polygone.geojson',
+parser.add_argument('-in', metavar='File', type=str,default='./Geojson/polygone.geojson',
                     help='The path of your geojson file',dest='file_input')
 parser.add_argument('-out', metavar='folder', type=str,dest='file_output',default='./products',
                     help='The path of directory where to save downloaded files')
