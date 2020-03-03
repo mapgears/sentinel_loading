@@ -1,0 +1,89 @@
+<!-- MapServer Template -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style type="text/css">
+		#rcorners1 {
+	  border-radius: 5px 5px;
+	  border: 2px solid #778899;
+	  color: #2F4F4F;
+	  width: 1200px;
+	  height: 30px;  
+	}
+		#rcorners2 {
+	  border-radius: 5px 5px;
+	  border: 2px solid #778899;
+	  color: #2F4F4F;
+	  width: 880px; 
+	}
+		#rcorners3 {
+	  border-radius: 5px 5px;
+	  border: 2px solid #778899;
+	  color: #2F4F4F;
+	  width: 300px; 
+	}
+	</style>
+
+</head>
+<body>
+<center><h2 id="rcorners1">MapServer - Itasca Application</h2></center>
+<!--===============================================================================================-->
+		<form method="GET" action="[program]" name="mapserv">
+<!--===============================================================================================-->
+<center>
+<table border="0" cellspacing="0" cellpadding="4">
+<tr>
+<td valign="top" align="center" id="rcorners2">
+  <table width="390" border="0" cellspacing="0" cellpadding="4" align="center" bgcolor="#666666">
+    <tr>
+      <td align="center"><input type="image" name="img" src="[img]" width="[mapwidth]" height="[mapheight]" border="0" alt="this is the map"></td>
+    </tr> 
+    <tr><td bgcolor="#666666">      
+      <img title="scalebar (mi)" alt="scalebar (mi)" src="[scalebar]">
+    </td></tr>
+  </table>  
+</td>
+<td valign="top" bgcolor="#ffffff" id="rcorners3">
+  <table cellpadding="5" cellspacing="0" border="0" bgcolor="#ffffff">
+    <tr><td>
+<!--===============================================================================================-->   
+	<center> 	
+    	<a href="[root]/index.html">back to start</a>
+    	<input type="submit" value="Refresh">
+    </center>
+<!--===============================================================================================-->
+	<input type="radio" name="mode" value="browse" checked> <b>Browse map</b><br><hr>
+<!--===============================================================================================-->      
+      <b>Select Layers to Display: </b><br>
+      <select multiple name="layer" size=3 >
+        <option value="airports" [airports_select]> Airports
+        <option value="lakespy2" [lakespy2_select]> Lakes & Rivers
+        <option value="dlgstln2" [twprgpy3_select]> Streams     
+        <option value="twprgpy3" [twprgpy3_select]> Townships
+      </select><hr>
+<!--===============================================================================================-->
+    Zoom In <input type=radio name=zoomdir value=1 [zoomdir_1_check]> <br>
+    Plan <input type=radio name=zoomdir value=0 [zoomdir_0_check]><br>
+    Zoom Out <input type=radio name=zoomdir value=-1 [zoomdir_-1_check]><br><hr>
+<!--===============================================================================================-->     
+    <p>Zoom Size <input type=text name=zoomsize size=4 value=[zoomsize]></p>
+<!--===============================================================================================-->     
+    <font size=+1><b>Legend</b></font><br>
+    <img src="[legend]"><hr>
+    </td></tr></table>
+
+  </td></tr>
+</table>
+</center>
+
+<input type="hidden" name="imgxy" value="[center]">
+<input type="hidden" name="imgext" value="[mapext]">
+<input type="hidden" name="map" value="[map]">
+<input type="hidden" name="root" value="[root]">
+<input type="hidden" name="savequery" value="true">
+<input type="hidden" name="program" value="[program]">
+<input type="hidden" name="map_web" value="[map_web]">
+
+</form>
+</body>
+</html>
