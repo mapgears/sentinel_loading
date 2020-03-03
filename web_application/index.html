@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style> 
+html { 
+  background: url(https://www.umhs-adolescenthealth.org/wp-content/uploads/2016/12/google-map-background.jpg) no-repeat center fixed; 
+  background-size: cover;
+}</style>
+  <script language="javascript"> 
+  
+      function configure() {
+        var template="itasca_basic.html"  
+        var snippet = " TEMPLATE " + template;
+        document.demo.map_web.value = snippet;    
+      }      
+  </script>
+
+  <title>Map Server Initialisation</title>
+  <meta charset="UTF-8">
+<!--===============================================================================================-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="css/util.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+  <div class="container-contact100" >
+    <div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
+<!--===============================================================================================-->
+    <div class="wrap-contact100">
+      <form class="contact100-form validate-form" name="demo" method="GET" action="/cgi-bin/mapserv" onSubmit="configure()">
+<!--===============================================================================================-->        
+        <span class="contact100-form-title">
+          Initialisation
+        </span>
+<!--===============================================================================================-->        
+        <input type="hidden" name="map_web" value="">
+        <input type="hidden" name="map" value="/var/www/mapserver/itasca.map">
+        <input type="hidden" name="program" value="/cgi-bin/mapserv">
+        <input type="hidden" name="root" value="/mapserver">
+<!--===============================================================================================-->
+      <label class="input100">Zoom Size:</label>
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="number" name="zoomsize" value=2>
+          <span class="focus-input100-1"></span>
+          <span class="focus-input100-2"></span>
+        </div>
+<!--===============================================================================================-->
+      <label class="input100">Zoom dir:</label>
+        <div class="wrap-input100 validate-input">
+            <select class="input100" name="zoomdir">
+              <option value="-1">Zoom Out </option>
+              <option value="0">Plan</option>
+              <option value="1">Zoom In</option>                        
+            </select>
+          <span class="focus-input100-1"></span>
+          <span class="focus-input100-2"></span>
+        </div>      
+<!--===============================================================================================-->
+        <label class="input100">Layer par defaut:</label>
+        <div class="wrap-input100 validate-input" data-validate = "Message is required">
+            <select class="input100" name="layer">
+              <option value="lakespy2">Lakes & Rivers</option>
+              <option value="dlgstln2">streams</option>
+              <option value="airports">Airport</option>
+              <option value="twprgpy3">Townships</option>                           
+            </select>
+
+            <span class="focus-input100-1"></span>
+            <span class="focus-input100-2"></span>
+        </div>
+<!--===============================================================================================-->
+        <div class="container-contact100-form-btn">
+            <input class="contact100-form-btn" type="submit" value="Initialize">
+        </div>
+<!--===============================================================================================-->
+      </form>
+    </div>
+  </div>
+
+  <div id="dropDownSelect1"></div>
+</body>
+</html>
