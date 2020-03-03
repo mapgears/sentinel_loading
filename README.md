@@ -20,7 +20,7 @@ What things you need to run this script and how to install them
 3. search by geometry
 4. create a folder with day and time as name
 5. download products
-6. extract product ( format zip )
+6. extract product ( format: zip )
 
 # How to use the script
  * use: >> ***python3 script.py -h***
