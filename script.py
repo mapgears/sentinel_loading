@@ -24,11 +24,10 @@ def createDirectory(name):
 	    os.mkdir(dirName)
 
 def show_product():
-	#show the universally unique identifier of each product
-	print(" List of data found:")
-	uuid_list=api.to_geodataframe(products).uuid
-	for i in range(len(uuid_list)):
-		print('*id: '+str(i)+' *uuid: '+str(list(uuid_list)[i])+' *Title: '+ api.to_geodataframe(products).title[i])
+	#show the List of data found
+	P_list=api.to_geodataframe(products).uuid
+	for i in range(len(P_list)):
+		print('*id: '+"{:0>3d}".format(i)+' *Title: '+ api.to_geodataframe(products).title[i]+' *'+ (api.to_geodataframe(products).summary[i])[-15:-1]+"B *cloud%: {:.3f}".format(api.to_geodataframe(products).cloudcoverpercentage[i]))
 
 def save_FeatureCollection() :
 	# GeoJSON FeatureCollection containing footprints and metadata of the scenes
@@ -69,11 +68,14 @@ P_download=input("do you want to download a product(T/F): ")
 while (P_download=='T'):
 	save_FeatureCollection()
 	show_product()
-	P_id= input("Enter product id: ")
-	P_directory_name=str(api.to_geodataframe(products).beginposition[int(P_id)])
-	P_directory_name=P_directory_name.replace(" ","_")[:19]
-	createDirectory(P_directory_name)
-	api.download(api.to_geodataframe(products).uuid[int(P_id)], directory_path=args.file_output+P_directory_name)
-	title=api.to_geodataframe(products).title[int(P_id)]
-	extracter_zip(title,P_directory_name)	
-	P_download=input("do you want to download a product(T/F): ")
+	try:
+		P_id= input("Enter product id: ")
+		P_directory_name=str(api.to_geodataframe(products).beginposition[int(P_id)])
+		P_directory_name=P_directory_name.replace(" ","_")[:19]
+		createDirectory(P_directory_name)
+		api.download(api.to_geodataframe(products).uuid[int(P_id)], directory_path=args.file_output+P_directory_name)
+		title=api.to_geodataframe(products).title[int(P_id)]
+		extracter_zip(title,P_directory_name)
+		P_download=input("do you want to download a product(T/F): ")		
+	except Exception :
+		P_download=input("do you want to download a product(T/F): ")
