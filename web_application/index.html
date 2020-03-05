@@ -3,7 +3,7 @@
 <head>
   <style> 
 html { 
-  background: url(https://www.umhs-adolescenthealth.org/wp-content/uploads/2016/12/google-map-background.jpg) no-repeat center fixed; 
+  background: url(images/index.jpeg) no-repeat center fixed; 
   background-size: cover;
 }</style>
   <script language="javascript"> 
@@ -43,9 +43,9 @@ html {
         </span>
 <!--===============================================================================================-->        
         <input type="hidden" name="map_web" value="">
-        <input type="hidden" name="map" value="/var/www/mapserver/itasca.map">
+        <input type="hidden" name="map" value="/var/www/sentinel_loading-master/web_application/itasca.map">
         <input type="hidden" name="program" value="/cgi-bin/mapserv">
-        <input type="hidden" name="root" value="/mapserver">
+        <input type="hidden" name="root" value="/sentinel_loading-master/web_application">
 <!--===============================================================================================-->
       <label class="input100">Zoom Size:</label>
         <div class="wrap-input100 validate-input">
@@ -68,10 +68,7 @@ html {
         <label class="input100">Layer par defaut:</label>
         <div class="wrap-input100 validate-input" data-validate = "Message is required">
             <select class="input100" name="layer">
-              <option value="lakespy2">Lakes & Rivers</option>
-              <option value="dlgstln2">streams</option>
-              <option value="airports">Airport</option>
-              <option value="twprgpy3">Townships</option>                           
+              <option value="drgs" [drgs_select]>Map</option>                        
             </select>
 
             <span class="focus-input100-1"></span>
