@@ -1,0 +1,16 @@
+{ "type": "FeatureCollection",
+    "features": [
+     { "type": "Feature",
+         "geometry": {
+           "type": "Polygon",
+           "coordinates": [
+             [ [10.019, 34.198], [11.337, 34.198], [11.337, 35.424],
+               [10.019, 35.424], [10.019, 34.198] ]
+             ]
+         },
+         "properties": {
+           "name_fr": "Sfax"
+           }
+         }
+    ]
+}
