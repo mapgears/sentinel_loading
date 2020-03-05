@@ -33,10 +33,10 @@ MAP
   # Start of web interface definition (including WMS enabling metadata)
   #
   WEB  
-    MINSCALE 1000
-    MAXSCALE 1550000
-    IMAGEPATH "/var/www/mapserver/outputFile/"
-    IMAGEURL "/mapserver/outputFile/"
+#    MINSCALE 1000
+#    MAXSCALE 1550000
+    IMAGEPATH "/var/www/sentinel_loading-master/web_application/outputFile/"
+    IMAGEURL "/sentinel_loading-master/web_application/outputFile/"
   END
 
   #
@@ -75,87 +75,11 @@ MAP
   #
 
   LAYER
-    NAME ctybdpy2
-    TYPE POLYGON
-    STATUS DEFAULT
-    DATA ctybdpy2
-    # no need for a background IF the USGS quads are being drawn
-    CLASSITEM 'cty_name'
-    CLASS
-      EXPRESSION 'Itasca'
-      STYLE
-        OUTLINECOLOR 128 128 128
-        COLOR 200 225 185
-      END
-    END
-    CLASS # every other county in the state
-      EXPRESSION /./ 
-       STYLE 
-        OUTLINECOLOR 128 128 128
-        COLOR 225 250 250
-      END
-    END
+    NAME drgs
+    TYPE RASTER
+    STATUS ON
+    OFFSITE 252 252 252
+    TILEINDEX drgidx
   END
-
-  LAYER
-    NAME twprgpy3
-    TYPE POLYGON
-    DATA twprgpy3
-    STATUS OFF
-    CLASS
-      NAME 'Townships'
-      STYLE
-        SYMBOL 'circle'
-        SIZE 2        
-        OUTLINECOLOR 181 181 145
-      END
-    END
-  END
-
-  LAYER
-    NAME lakespy2
-    TYPE POLYGON
-    STATUS OFF
-    DATA lakespy2
-    CLASS
-      NAME 'Lakes & Rivers'
-      STYLE
-        COLOR 49 117 185
-      END
-    END
-    TOLERANCE 3
-    DUMP TRUE # allow GML export
-  END # lakes
-
-  LAYER
-    NAME dlgstln2
-    TYPE LINE
-    STATUS OFF
-    DATA dlgstln2
-    CLASS
-      NAME "Streams"
-      STYLE
-        COLOR 49 117 185
-      END
-    END
-    TOLERANCE 5    
-    DUMP TRUE # allow GML export
-  END # streams
- 
- LAYER
-    NAME airports
-    TYPE POINT
-    DATA airports
-    STATUS OFF
-    CLASS
-      NAME 'Airports'
-      STYLE
-        COLOR 128 255 164
-        SYMBOL 'circle'
-        SIZE 7
-      END
-    END
-    TOLERANCE 5
-  END
-
+  
 END # Map File
