@@ -81,5 +81,19 @@ MAP
     OFFSITE 252 252 252
     TILEINDEX drgidx
   END
-  
+  #  	LAYER
+#	  NAME drgs
+#	  STATUS DEFAULT
+#	  TYPE POLYGON
+#	  CONNECTIONTYPE postgis
+#	  CONNECTION "user=*** password=*** dbname=gisdata host=127.0.0.1 port=5432"
+#	  DATA "geom from drgidx using unique gid"	
+#	    CLASS
+#	    STYLE
+#	      COLOR 128 128 128
+#	      ANTIALIAS true
+#	    END
+#	  END
+#  	END
+
 END # Map File
