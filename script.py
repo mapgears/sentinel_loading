@@ -6,20 +6,20 @@ import string
 import json
 import os
 
-def extracter_zip(title,P_directory_name):
-	dirlist = os.listdir(str("./products/"+P_directory_name))
+def extracter_zip(file_output,title,P_directory_name):
+	dirlist = os.listdir(str(file_output+P_directory_name))
 	P_extract=False
 	for i_dirlist in dirlist :
 		if(str(title+'.SAFE')==i_dirlist):
 			P_extract=True
 	if P_extract==False:
 		print('pleasse attend to extract product ...')
-		with zipfile.ZipFile('./products/'+P_directory_name+'/'+title+'.zip', 'r') as zip_ref:
-			zip_ref.extractall('./products/'+P_directory_name)
+		with zipfile.ZipFile(file_output+P_directory_name+'/'+title+'.zip', 'r') as zip_ref:
+			zip_ref.extractall(file_output+P_directory_name)
 
-def createDirectory(name):
+def createDirectory(file_output,name):
 	# Create target Directory if don't exist
-	dirName = './products/'+name
+	dirName = file_output+name
 	if not os.path.exists(dirName):
 	    os.mkdir(dirName)
 
@@ -72,10 +72,10 @@ while (P_download=='T'):
 		P_id= input("Enter product id: ")
 		P_directory_name=str(api.to_geodataframe(products).beginposition[int(P_id)])
 		P_directory_name=P_directory_name.replace(" ","_")[:19]
-		createDirectory(P_directory_name)
-		api.download(api.to_geodataframe(products).uuid[int(P_id)], directory_path=args.file_output+P_directory_name)
+		createDirectory(args.file_output,P_directory_name)
+		print("-"+P_directory_name+"-")
+		#api.download(api.to_geodataframe(products).uuid[int(P_id)], directory_path=args.file_output+P_directory_name)
 		title=api.to_geodataframe(products).title[int(P_id)]
-		extracter_zip(title,P_directory_name)
-		P_download=input("do you want to download a product(T/F): ")		
-	except Exception :
+		extracter_zip(args.file_output,title,P_directory_name)
+	except :
 		P_download=input("do you want to download a product(T/F): ")
