@@ -54,11 +54,7 @@ api = SentinelAPI(args.user,args.password,'https://scihub.copernicus.eu/dhus')
 
 # search by polygon
 print ("The coordinates of our geometry: \n" + footprint)
-products = api.query(area=footprint,
-                     initial_date=args.start_date,
-                     end_date=args.end_date,
-                     platformname=args.platform_name,
-                     processinglevel=args.processing_level)
+products = api.query(area=footprint,initial_date=args.start_date,end_date=args.end_date,platformname=args.platform_name,processinglevel=args.processing_level)
 
 #number of products found
 print("-- The number of data found: "+str(len(products))+" --")
@@ -74,8 +70,8 @@ while (P_download=='T'):
 		P_directory_name=P_directory_name.replace(" ","_")[:19]
 		createDirectory(args.file_output,P_directory_name)
 		print("-"+P_directory_name+"-")
-		#api.download(api.to_geodataframe(products).uuid[int(P_id)], directory_path=args.file_output+P_directory_name)
+		api.download(api.to_geodataframe(products).uuid[int(P_id)], directory_path=args.file_output+P_directory_name)
 		title=api.to_geodataframe(products).title[int(P_id)]
 		extracter_zip(args.file_output,title,P_directory_name)
 	except :
-		P_download=input("do you want to download a product(T/F): ")
+		P_download=input("do you want to download a product(T/F): ")		
